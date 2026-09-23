@@ -1,17 +1,9 @@
-from decimal import Decimal
 import pytest
-from ledger.app import create_app
-from ledger.domain.models import PaymentEvent, EntryType
+from fulfillment.app import create_app
+from fulfillment.domain.models import ShipmentEvent,ShipmentStatus
 
 @pytest.fixture
-def app():
-    return create_app()
+def app(): return create_app()
 
-def event(event_id, payment_id, amount, kind=EntryType.CREDIT, account="acct-1"):
-    return PaymentEvent(
-        event_id=event_id,
-        account_id=account,
-        payment_id=payment_id,
-        amount=Decimal(str(amount)),
-        entry_type=kind,
-    )
+def ev(eid,status,seq,shipment="ship-1",order="order-1",sku="sku-1"):
+    return ShipmentEvent(eid,shipment,order,sku,status,seq)
