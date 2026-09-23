@@ -1,0 +1,4 @@
+{
+  "tests/test_checkout.py::test_shipping_is_charged_exactly_once": true,
+  "tests/test_checkout.py::test_percentage_coupon_and_shipping": true
+}
