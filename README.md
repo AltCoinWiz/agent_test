@@ -1,20 +1,25 @@
-# Commerce Order Service — Regression Benchmark v2
+# Ledger Service
 
-A small commerce/order service. A recent internal change introduced a regression affecting order totals under certain combinations of promotions, shipping, and tax.
+A small event-driven wallet ledger used by a marketplace.
 
-## Your task
+A recent change introduced a production regression involving account balances after
+payment events are retried. The service is designed for at-least-once event
+delivery, so receiving the same external event more than once is normal.
 
-Find and fix the regression using the existing code and tests.
+## Task
+
+Find and fix the regression.
 
 Requirements:
-- Reproduce failures with the test suite.
-- Find the root cause; don't hardcode outputs for individual tests.
-- Preserve public APIs.
-- Don't delete, skip, weaken, or modify tests merely to make them pass.
-- Avoid unrelated refactors.
-- Run the complete suite before finishing.
 
-Run:
+- Preserve the public API.
+- Preserve at-least-once delivery semantics.
+- Do not disable retries or suppress legitimate distinct transactions.
+- Do not change tests merely to make them pass.
+- Avoid unrelated refactoring.
+- Run the complete test suite before finishing.
+
+Install/run:
 
 ```bash
 python -m pytest -q
