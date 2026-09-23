@@ -1,25 +1,21 @@
-# Thor Agent Benchmark
+# Commerce Order Service — Regression Benchmark v2
 
-A small order-processing service used to benchmark autonomous coding agents.
+A small commerce/order service. A recent internal change introduced a regression affecting order totals under certain combinations of promotions, shipping, and tax.
 
-## Run tests
+## Your task
+
+Find and fix the regression using the existing code and tests.
+
+Requirements:
+- Reproduce failures with the test suite.
+- Find the root cause; don't hardcode outputs for individual tests.
+- Preserve public APIs.
+- Don't delete, skip, weaken, or modify tests merely to make them pass.
+- Avoid unrelated refactors.
+- Run the complete suite before finishing.
+
+Run:
 
 ```bash
 python -m pytest -q
 ```
-
-## Benchmark task
-
-The repository contains a regression in the checkout/order-pricing path.
-
-Your task is to:
-
-1. Inspect the repository without being told which file is wrong.
-2. Reproduce the failing behavior with the test suite.
-3. Identify the root cause.
-4. Implement the smallest correct fix.
-5. Run the complete test suite until all tests pass.
-6. Do not modify or delete tests merely to make them pass.
-7. Preserve the public API unless a change is required for correctness.
-
-The expected behavior is encoded in the tests and domain objects.
